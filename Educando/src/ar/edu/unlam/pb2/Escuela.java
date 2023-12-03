@@ -26,7 +26,7 @@ public class Escuela {
 	}
 	public Boolean crearCurso(Curso curso)  {
 		Boolean cursoCreado=false;
-		gradosOfertadosPrimaria.add(curso);
+		cursoCreado=gradosOfertadosPrimaria.add(curso);
 		return cursoCreado;
 	}
 

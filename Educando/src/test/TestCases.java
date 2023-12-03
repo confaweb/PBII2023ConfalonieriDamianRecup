@@ -43,24 +43,22 @@ public class TestCases {
 		final Integer CL = 2023, EDAD = 10;		
 		final String NOMBRE_DEL_ESTUDIANTE = "Fiorella Fonteveccia";
 		final LocalDate FECHA_DE_NACIMIENTO = LocalDate.parse("2013-01-23");
-		final Integer DNI = 49354752;
-		
+		final Integer DNI = 49354752;		
 		
 		final String NOMBRE_DEL_DOCENTE = "Susana";
 		
 		//Ejecucion
-		Escuela unlam = new Escuela(NOMBRE_DE_LA_ESCUELA);
-		
+		Escuela unlam = new Escuela(NOMBRE_DE_LA_ESCUELA);		
 		
 		GradoPrimaria cuartoGrado = new GradoPrimaria(DESCRIPCION_DEL_CURSO, CL, EDAD, Grado.CUARTO);
-		unlam.crearCurso(cuartoGrado);
+		unlam.crearCurso(cuartoGrado);//
 		
 		AlumnoDePrimaria alumno = new AlumnoDePrimaria(DNI, NOMBRE_DEL_ESTUDIANTE, FECHA_DE_NACIMIENTO);
-		unlam.inscribir(alumno, CL);
+		unlam.inscribir(alumno, CL);// lanza SinCursosDisponiblesException + NoEstaHabilitadoException
 		
-		Docente susana = new Docente(NOMBRE_DEL_DOCENTE);
+		Docente susana = new Docente(NOMBRE_DEL_DOCENTE, DNI);
 		susana.agregarCompetencia(Grado.CUARTO);
-		cuartoGrado.setDocente(susana);
+		cuartoGrado.setDocente(susana);//lanza DocenteNoTieneCompetencia
 		
 		alumno.asistir(LocalDate.now());
 		

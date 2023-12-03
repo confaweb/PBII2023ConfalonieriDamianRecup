@@ -12,4 +12,29 @@ public   abstract class Curso {
 		
 	}
 
+	public Integer getcL() {
+		return cL;
+	}
+
+	public void setcL(Integer cL) {
+		this.cL = cL;
+	}
+
+	public String getDescripcionDelcurso() {
+		return descripcionDelcurso;
+	}
+
+	public void setDescripcionDelcurso(String descripcionDelcurso) {
+		this.descripcionDelcurso = descripcionDelcurso;
+	}
+
+	public Integer getEdad() {
+		return edad;
+	}
+
+	public void setEdad(Integer edad) {
+		this.edad = edad;
+	}
+	
+
 }

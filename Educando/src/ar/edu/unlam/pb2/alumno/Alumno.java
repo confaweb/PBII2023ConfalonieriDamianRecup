@@ -37,6 +37,15 @@ public abstract class Alumno {
 	public void setFechaDeNac(LocalDate fechaDeNac) {
 		this.fechaDeNac = fechaDeNac;
 	}
+	public void asistir(LocalDate now) {
+		
+		
+	}
+
+	public boolean asistio(LocalDate now) {
+		
+		return false;
+	}
 
 	@Override
 	public int hashCode() {
