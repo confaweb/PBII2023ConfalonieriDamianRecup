@@ -22,12 +22,6 @@ public class Docente implements Competencia {
 	}
 
 
-@Override
-	public void agregarCompetencia(Grado cuarto) {
-		cuarto =Grado.CUARTO;
-		competencias.add(cuarto);
-		
-	}
 
 
 public String getNombreDocente() {
@@ -68,5 +62,12 @@ public Set<Grado> getCompetencia() {
 public void setCompetencia(Set<Grado> competencia) {
 	this.competencias = competencia;
 }
+@Override
+public void agregarCompetencia(Grado cuarto) {
+	cuarto =Grado.CUARTO;
+	competencias.add(cuarto);
+	
+}
+
 
 }

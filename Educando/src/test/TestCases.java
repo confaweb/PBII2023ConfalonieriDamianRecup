@@ -148,7 +148,7 @@ public class TestCases {
 		AlumnoDePrimaria alumno = new AlumnoDePrimaria(DNI, NOMBRE_DEL_ESTUDIANTE, FECHA_DE_NACIMIENTO);
 		unlam.inscribir(alumno, CL);
 
-		Docente lorusso = new Docente(NOMBRE_DEL_DOCENTE);
+		Docente lorusso = new Docente(NOMBRE_DEL_DOCENTE, DNI);
 		lorusso.agregarCompetencia(Grado.CUARTO);
 		cuartoGrado.setaCargo(lorusso);				
 		
@@ -194,7 +194,7 @@ public class TestCases {
 		AlumnoDePrimaria alumno = new AlumnoDePrimaria(DNI, NOMBRE_DEL_ESTUDIANTE, FECHA_DE_NACIMIENTO);
 		unlam.inscribir(alumno, CL);
 
-		Docente lorusso = new Docente(NOMBRE_DEL_DOCENTE);
+		Docente lorusso = new Docente(NOMBRE_DEL_DOCENTE, DNI);
 		lorusso.agregarCompetencia(Grado.CUARTO);
 		cuartoGrado.setaCargo(lorusso);				
 		
@@ -237,7 +237,7 @@ public class TestCases {
 		CursoSecundaria cuartoAnio = new CursoSecundaria(DESCRIPCION_DEL_CURSO, CL, EDAD, Anio.CUARTO);
 		unlam.crearCurso(cuartoAnio);
 		
-		Docente lorusso = new Docente("Liliana Loruso");
+		Docente lorusso = new Docente("Liliana Loruso", DNI);
 		lorusso.agregarCompetencia(biologia);
 		
 		AlumnoDeSecundaria alumno = new AlumnoDeSecundaria(DNI, NOMBRE_DEL_ESTUDIANTE, FECHA_DE_NACIMIENTO);
