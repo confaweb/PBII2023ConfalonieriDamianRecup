@@ -7,11 +7,14 @@ public abstract class Alumno {
 	protected Integer dni;
 	protected String nombreDelEstudiante;
 	protected LocalDate fechaDeNac;
+	protected Boolean presente;
 
 	public Alumno(Integer dni, String nombreDelEstudiante, LocalDate fechaDeNac) {
 		this.dni=dni;
 		this.nombreDelEstudiante=nombreDelEstudiante;
 		this.fechaDeNac=fechaDeNac;
+		
+		
 	}
 
 	public Integer getDni() {
@@ -37,15 +40,18 @@ public abstract class Alumno {
 	public void setFechaDeNac(LocalDate fechaDeNac) {
 		this.fechaDeNac = fechaDeNac;
 	}
-	public void asistir(LocalDate now) {
-		
-		
+	public Boolean getPresente() {
+		return presente;
 	}
 
-	public boolean asistio(LocalDate now) {
-		
-		return false;
+	public void setPresente(Boolean presente) {
+		this.presente = presente;
 	}
+
+	public abstract void asistir(LocalDate fecha);
+	public abstract Boolean asistio(LocalDate fecha);
+
+
 
 	@Override
 	public int hashCode() {
@@ -70,4 +76,5 @@ public abstract class Alumno {
 				+ "]";
 	}
 
+	
 }

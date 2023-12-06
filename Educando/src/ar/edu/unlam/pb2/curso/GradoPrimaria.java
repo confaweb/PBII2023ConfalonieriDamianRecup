@@ -1,5 +1,8 @@
 package ar.edu.unlam.pb2.curso;
 
+import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -13,6 +16,7 @@ public class GradoPrimaria extends Curso {
 	private Grado grado;
 	private Set<Docente> docentesHabilitados ;
 	private Set<Alumno> listadoCurso;
+	private Map<Alumno, LocalDate> registroAsistencia;
 	
 
 	public GradoPrimaria(String descripcionDelcurso, Integer cL, Integer edad, Grado grado) {
@@ -23,7 +27,9 @@ public class GradoPrimaria extends Curso {
 		this.grado = grado;
 		this.docentesHabilitados= new TreeSet<Docente>();
 		this.listadoCurso=new TreeSet<Alumno>();
+		this.registroAsistencia=new HashMap <Alumno, LocalDate>();
 	}
+	
 
 	public Grado getGrado() {
 		return grado;
@@ -44,6 +50,10 @@ public class GradoPrimaria extends Curso {
 			throw new DocenteNoTieneCompetencia("Docente no tiene competencia para asignarle este Grado");
 		}
 
+	}
+	public void tomarLista(Alumno alumno,LocalDate fecha) {
+		if(alumno.asistio(fecha)==true)
+			registroAsistencia.put(alumno, fecha);
 	}
 
 }
