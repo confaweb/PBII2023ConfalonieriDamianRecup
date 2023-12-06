@@ -1,5 +1,7 @@
 package ar.edu.unlam.pb2.interfaces;
 
-public interface Competencia {
+import ar.edu.unlam.pb2.competencia.Grado;
 
+public interface Competencia {
+	public void agregarCompetencia(Grado grado);
 }

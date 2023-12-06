@@ -34,7 +34,7 @@ public class TestCases {
 		En la Secundaria, se les exige a los docentes que cuenten con la competencia de la materia, para poder corregir las pruebas.
 		El sistema debe permitir llevar un control de asistencia de los alumnos.
 	 */
-	@Test
+	@Test//#1
 	public void queUnAlumnoDePrimariaPuedaAsistir() throws SinCursosDisponiblesException, NoEstaHabilitadoException, DocenteNoTieneCompetencia {
 		//Preparacion
 		final String NOMBRE_DE_LA_ESCUELA = "Escuela Unlam";
@@ -43,26 +43,24 @@ public class TestCases {
 		final Integer CL = 2023, EDAD = 10;		
 		final String NOMBRE_DEL_ESTUDIANTE = "Fiorella Fonteveccia";
 		final LocalDate FECHA_DE_NACIMIENTO = LocalDate.parse("2013-01-23");
-		final Integer DNI = 49354752;
-		
+		final Integer DNI = 49354752;		
 		
 		final String NOMBRE_DEL_DOCENTE = "Susana";
 		
 		//Ejecucion
-		Escuela unlam = new Escuela(NOMBRE_DE_LA_ESCUELA);
-		
+		Escuela unlam = new Escuela(NOMBRE_DE_LA_ESCUELA);		
 		
 		GradoPrimaria cuartoGrado = new GradoPrimaria(DESCRIPCION_DEL_CURSO, CL, EDAD, Grado.CUARTO);
-		unlam.crearCurso(cuartoGrado);
+		unlam.crearCurso(cuartoGrado);//
 		
-		AlumnoDePrimaria alumno = new AlumnoDePrimaria(DNI, NOMBRE_DEL_ESTUDIANTE, FECHA_DE_NACIMIENTO);
-		unlam.inscribir(alumno, CL);
+		AlumnoDePrimaria alumno = new AlumnoDePrimaria(DNI, NOMBRE_DEL_ESTUDIANTE, FECHA_DE_NACIMIENTO, Grado.CUARTO);
+		unlam.inscribir(alumno, CL);// lanza SinCursosDisponiblesException + NoEstaHabilitadoException
 		
-		Docente susana = new Docente(NOMBRE_DEL_DOCENTE);
+		Docente susana = new Docente(NOMBRE_DEL_DOCENTE, DNI);
 		susana.agregarCompetencia(Grado.CUARTO);
-		cuartoGrado.setDocente(susana);
+		cuartoGrado.setDocente(susana);//lanza DocenteNoTieneCompetencia
 		
-		alumno.asistir(LocalDate.now());
+		alumno.asistir(LocalDate.now());//void que agrega presente/ausente(attributo boolean de alumno) a lista De asistencia del grado que esta inscripto
 		
 		// Validacion
 		assertTrue(alumno.asistio(LocalDate.now()));
@@ -150,7 +148,7 @@ public class TestCases {
 		AlumnoDePrimaria alumno = new AlumnoDePrimaria(DNI, NOMBRE_DEL_ESTUDIANTE, FECHA_DE_NACIMIENTO);
 		unlam.inscribir(alumno, CL);
 
-		Docente lorusso = new Docente(NOMBRE_DEL_DOCENTE);
+		Docente lorusso = new Docente(NOMBRE_DEL_DOCENTE, DNI);
 		lorusso.agregarCompetencia(Grado.CUARTO);
 		cuartoGrado.setaCargo(lorusso);				
 		
@@ -196,7 +194,7 @@ public class TestCases {
 		AlumnoDePrimaria alumno = new AlumnoDePrimaria(DNI, NOMBRE_DEL_ESTUDIANTE, FECHA_DE_NACIMIENTO);
 		unlam.inscribir(alumno, CL);
 
-		Docente lorusso = new Docente(NOMBRE_DEL_DOCENTE);
+		Docente lorusso = new Docente(NOMBRE_DEL_DOCENTE, DNI);
 		lorusso.agregarCompetencia(Grado.CUARTO);
 		cuartoGrado.setaCargo(lorusso);				
 		
@@ -239,7 +237,7 @@ public class TestCases {
 		CursoSecundaria cuartoAnio = new CursoSecundaria(DESCRIPCION_DEL_CURSO, CL, EDAD, Anio.CUARTO);
 		unlam.crearCurso(cuartoAnio);
 		
-		Docente lorusso = new Docente("Liliana Loruso");
+		Docente lorusso = new Docente("Liliana Loruso", DNI);
 		lorusso.agregarCompetencia(biologia);
 		
 		AlumnoDeSecundaria alumno = new AlumnoDeSecundaria(DNI, NOMBRE_DEL_ESTUDIANTE, FECHA_DE_NACIMIENTO);
